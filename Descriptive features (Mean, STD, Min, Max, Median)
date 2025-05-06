@@ -1,0 +1,20 @@
+def describe_features(df, feature_names):
+    summary = df[feature_names].agg(['mean', 'median', 'std', 'max', 'min']).T
+    summary = summary.rename(columns={
+        'mean': 'Mean',
+        'median': 'Median',
+        'std': 'Standard Deviation',
+        'max': 'Max',
+        'min': 'Min'
+    })
+    return summary
+
+# Describe Dataset 1
+print("Dataset 1 Summary:")
+summary_df1 = describe_features(X1, numerical_features1)
+print(summary_df1)
+
+# Describe Dataset 2
+print("\nDataset 2 Summary:")
+summary_df2 = describe_features(X2, numerical_features2)
+print(summary_df2)
